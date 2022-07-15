@@ -1,0 +1,35 @@
+import * as React from 'react';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import DirectionsIcon from '@mui/icons-material/Directions';
+
+
+ <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 300 }}>
+            <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                color="primary"
+                placeholder="Search song by artist"
+                id="outlined-basic"
+                inputProps={{ 'aria-label': 'Search song by artist' }}
+                value={searchParams.get("filter") || ""}
+                        onChange={(event) => {
+                        let filter = event.target.value;
+                        if (filter) {
+                            setSearchParams({ filter }, { replace: true });
+                        } else {
+                            setSearchParams({}, { replace: true });
+                        }
+                    }}
+            />
+            <IconButton onClick={handleSearchByArtist} color="secondary" type="submit" sx={{ p: '10px' }} aria-label="search">
+                <IconButton style={{color:"purple"}} aria-label="add" size="medium"><SearchSharp fontSize="inherit"></SearchSharp></IconButton>
+            </IconButton>
+            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+            <IconButton onClick={props.getSongs} color="secondary" sx={{ p: '10px' }}>
+                <ReplayCircleFilled style={{color:"purple"}}/>
+            </IconButton>
+            </Paper> 
